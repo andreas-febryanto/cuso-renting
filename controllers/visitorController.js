@@ -5,6 +5,7 @@ class visitorController {
     try {
       const visitors = await Visitor.findAll({
         order: [["id", "ASC"]],
+        attributes: { exclude: ["createdAt", "updatedAt"] },
       });
       res.status(200).json(visitors);
     } catch (error) {
