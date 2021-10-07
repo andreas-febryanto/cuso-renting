@@ -12,6 +12,10 @@ module.exports = errorHandler = (err, req, res, next) => {
       code = 400;
       message = `... already taken`;
       break;
+    case "bad request":
+      code = 400;
+      message = `id not found`;
+      break;
   }
   res.status(code).json({ message });
 };
