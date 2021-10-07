@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Book.belongsTo(models.Genre, { foreignKey: "genre" });
     }
   }
   Book.init(
@@ -28,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: { msg: "Genre field must be filled" },
           notNull: { msg: "Genre field must be filled" },
+          min: {
+            args: [1],
+            msg: "Genre field must be filled",
+          },
         },
       },
     },
