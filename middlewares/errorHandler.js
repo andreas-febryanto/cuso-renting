@@ -10,7 +10,7 @@ module.exports = errorHandler = (err, req, res, next) => {
       break;
     case "SequelizeUniqueConstraintError":
       code = 400;
-      message = `... already taken`;
+      message = `${req.body.name} already taken`;
       break;
     case "bad request":
       code = 400;
