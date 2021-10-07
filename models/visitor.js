@@ -24,9 +24,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       join_date: {
         type: DataTypes.DATE,
+        allowNull: false,
         validate: {
           notEmpty: { msg: "Join date field must be filled" },
           notNull: { msg: "Join date field must be filled" },
+          isDate: { msg: "Must be date format" },
         },
       },
     },
