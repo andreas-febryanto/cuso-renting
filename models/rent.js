@@ -21,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: { msg: "VisitorId field must be filled" },
           notNull: { msg: "VisitorId field must be filled" },
+          min: {
+            args: [1],
+            msg: "UserId field must be filled",
+          },
         },
       },
       BookId: {
@@ -29,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: { msg: "BookId field must be filled" },
           notNull: { msg: "BookId field must be filled" },
+          min: {
+            args: [1],
+            msg: "BookId field must be filled",
+          },
         },
       },
       renting_date: {
@@ -37,6 +45,7 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: { msg: "Renting date field must be filled" },
           notNull: { msg: "Renting date field must be filled" },
+          isDate: { msg: "Must be date format" },
         },
       },
     },
